@@ -1,122 +1,634 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI视觉内容策划作品集</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI视觉内容作品集｜zhou2835</title>
+  <style>
+    :root{
+      --bg:#f7f5f2;
+      --card:#ffffff;
+      --text:#222222;
+      --sub:#666666;
+      --line:#e8e3dc;
+      --accent:#b79d7d;
+      --accent-dark:#8f7556;
+      --shadow:0 10px 30px rgba(0,0,0,0.06);
+      --radius:18px;
+      --max:1100px;
+    }
 
-<style>
-body{
-margin:0;
-font-family:-apple-system, BlinkMacSystemFont, "PingFang SC";
-background:#f4f4f6;
-color:#222;
-}
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.75;
+    }
 
-.hero{
-padding:60px 20px;
-text-align:center;
-background:linear-gradient(135deg,#111,#333);
-color:#fff;
-}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-.hero h1{
-font-size:28px;
-margin-bottom:10px;
-}
+    img{
+      max-width:100%;
+      display:block;
+      border-radius:14px;
+    }
 
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
 
-.card{
-background:#fff;
-padding:20px;
-margin:15px 0;
-border-radius:14px;
-box-shadow:0 8px 20px rgba(0,0,0,0.06);
-}
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(10px);
+      background:rgba(247,245,242,0.82);
+      border-bottom:1px solid rgba(0,0,0,0.04);
+    }
 
-h2{
-font-size:18px;
-border-left:4px solid #000;
-padding-left:10px;
-}
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+    }
 
-.tag{
-display:inline-block;
-background:#eee;
-padding:4px 10px;
-border-radius:20px;
-font-size:12px;
-margin-right:5px;
-}
+    .brand{
+      font-weight:700;
+      letter-spacing:0.5px;
+      font-size:16px;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
+    .nav-links{
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      color:var(--sub);
+      flex-wrap:wrap;
+    }
 
-@media(max-width:600px){
-.grid{grid-template-columns:1fr;}
-}
-</style>
+    .hero{
+      padding:72px 0 48px;
+    }
 
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#efe8df;
+      color:var(--accent-dark);
+      font-size:13px;
+      margin-bottom:16px;
+    }
+
+    h1{
+      margin:0 0 16px;
+      font-size:44px;
+      line-height:1.18;
+      letter-spacing:-0.5px;
+    }
+
+    .hero p{
+      margin:0 0 22px;
+      color:var(--sub);
+      font-size:16px;
+    }
+
+    .hero-card{
+      background:var(--card);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:18px;
+      border:1px solid var(--line);
+    }
+
+    .hero-image{
+      aspect-ratio: 4 / 5;
+      border-radius:18px;
+      background:
+        linear-gradient(145deg, rgba(183,157,125,0.22), rgba(255,255,255,0.5)),
+        linear-gradient(180deg, #f3ede5, #efe7dc);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#7f6a52;
+      padding:20px;
+      font-size:15px;
+    }
+
+    .btn-group{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:14px;
+      transition:0.2s ease;
+      border:1px solid transparent;
+    }
+
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    .btn-primary:hover{
+      background:var(--accent-dark);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--text);
+      border-color:var(--line);
+    }
+
+    section{
+      padding:22px 0 12px;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:28px;
+      line-height:1.25;
+    }
+
+    .section-head p{
+      margin:6px 0 0;
+      color:var(--sub);
+      font-size:14px;
+      max-width:560px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:8px;
+    }
+
+    .stat{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:28px;
+      margin-bottom:6px;
+    }
+
+    .stat span{
+      color:var(--sub);
+      font-size:14px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:20px;
+    }
+
+    .card p{
+      margin:0 0 12px;
+      color:var(--sub);
+      font-size:14px;
+    }
+
+    .tag-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:8px;
+    }
+
+    .tag{
+      padding:6px 10px;
+      background:#f2eee8;
+      border-radius:999px;
+      font-size:12px;
+      color:#6d5c47;
+    }
+
+    .case-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .case{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .case-cover{
+      aspect-ratio: 4 / 5;
+      background:
+        linear-gradient(135deg, rgba(183,157,125,0.25), rgba(255,255,255,0.7)),
+        linear-gradient(180deg, #f7f2ec, #eee5d8);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#7d6a54;
+      padding:18px;
+      font-size:14px;
+    }
+
+    .case-body{
+      padding:16px;
+    }
+
+    .case-body h4{
+      margin:0 0 6px;
+      font-size:17px;
+    }
+
+    .case-body p{
+      margin:0;
+      color:var(--sub);
+      font-size:13px;
+    }
+
+    .timeline{
+      display:grid;
+      gap:14px;
+    }
+
+    .timeline-item{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px 20px;
+    }
+
+    .timeline-item strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:17px;
+    }
+
+    .timeline-item span{
+      display:block;
+      color:var(--sub);
+      font-size:13px;
+      margin-bottom:8px;
+    }
+
+    .skill-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .skill{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+
+    .skill h4{
+      margin:0 0 8px;
+      font-size:16px;
+    }
+
+    .skill p{
+      margin:0;
+      color:var(--sub);
+      font-size:13px;
+    }
+
+    .cta{
+      margin:28px 0 50px;
+      background:linear-gradient(135deg, #efe6da, #faf7f2);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .cta h3{
+      margin:0 0 8px;
+      font-size:24px;
+    }
+
+    .cta p{
+      margin:0 0 16px;
+      color:var(--sub);
+    }
+
+    footer{
+      padding:20px 0 40px;
+      color:var(--sub);
+      font-size:13px;
+      text-align:center;
+    }
+
+    @media (max-width: 900px){
+      .hero-grid,
+      .cards,
+      .case-grid,
+      .skill-grid,
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:34px;
+      }
+
+      .section-head{
+        display:block;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="hero">
-<h1>AI视觉内容策划</h1>
-<p>从景观设计师 → AI内容运营实践者</p>
-</div>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">AI视觉内容作品集</div>
+      <div class="nav-links">
+        <a href="#about">关于我</a>
+        <a href="#project">项目成果</a>
+        <a href="#works">作品展示</a>
+        <a href="#experience">经历</a>
+        <a href="#contact">联系</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="container">
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">AI Content / Visual / Growth</div>
+        <h1>从景观设计师<br>到 AI 视觉内容运营实践者</h1>
+        <p>
+          具备 5 年景观设计经验，拥有空间审美、视觉表达与风格判断能力。
+          目前聚焦 AI 视觉内容创作与小红书内容增长实践，正在把“设计能力”转化为“内容生产与运营能力”。
+        </p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="#project">查看项目</a>
+          <a class="btn btn-secondary" href="#contact">联系我</a>
+        </div>
+      </div>
 
-<div class="card">
-<h2>关于我</h2>
-<p>5年景观设计经验，专注空间视觉与美学表达，目前转型AI内容运营与小红书视觉创作。</p>
-<div>
-<span class="tag">AI内容</span>
-<span class="tag">视觉设计</span>
-<span class="tag">小红书运营</span>
-</div>
-</div>
+      <div class="hero-card">
+        <div class="hero-image">
+          这里可以放你的封面图<br>
+          （后续可替换成 AI 家居视觉图或小红书主页截图）
+        </div>
+      </div>
+    </div>
+  </header>
 
-<div class="card">
-<h2>核心成果</h2>
-<ul>
-<li>小红书AI家居内容发布：40+</li>
-<li>累计点赞：2000+</li>
-<li>收藏：1900+</li>
-<li>粉丝增长持续中</li>
-</ul>
-</div>
+  <main class="container">
 
-<div class="card">
-<h2>能力结构</h2>
-<div class="grid">
-<div>
-✔ AI生成内容（ChatGPT / Gemini）<br>
-✔ 视觉表达设计<br>
-</div>
-<div>
-✔ Canva / 剪映<br>
-✔ 小红书运营策略<br>
-</div>
-</div>
-</div>
+    <section id="about">
+      <div class="section-head">
+        <div>
+          <h2>关于我</h2>
+          <p>不是简单“转行”，而是把空间审美、视觉表达和 AI 内容生产结合起来，形成新的职业能力。</p>
+        </div>
+      </div>
 
-<div class="card">
-<h2>工作经历</h2>
-<p><b>景观设计师（2020-2025）</b></p>
-<p>空间方案设计 / 视觉表达 / 项目汇报</p>
-</div>
+      <div class="cards">
+        <div class="card">
+          <h3>我的定位</h3>
+          <p>
+            AI内容运营 / 新媒体运营（AI方向） / 视觉内容策划
+          </p>
+          <div class="tag-list">
+            <span class="tag">空间审美</span>
+            <span class="tag">AI生成内容</span>
+            <span class="tag">小红书运营</span>
+            <span class="tag">视觉内容</span>
+          </div>
+        </div>
 
-</div>
+        <div class="card">
+          <h3>我的优势</h3>
+          <p>
+            有设计背景的人很多，但同时具备内容实践、平台意识和 AI 生成经验的人并不多。
+            我更像一个“会审美、会表达、会跑内容闭环”的内容型候选人。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="project">
+      <div class="section-head">
+        <div>
+          <h2>项目成果</h2>
+          <p>以下数据来自我的 AI 家居视觉内容小红书实践项目，用于验证内容方向与早期增长模型。</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>40+</strong>
+          <span>发布笔记</span>
+        </div>
+        <div class="stat">
+          <strong>2000+</strong>
+          <span>累计点赞</span>
+        </div>
+        <div class="stat">
+          <strong>1900+</strong>
+          <span>累计收藏</span>
+        </div>
+        <div class="stat">
+          <strong>386</strong>
+          <span>当前粉丝</span>
+        </div>
+      </div>
+
+      <div class="cards" style="margin-top:18px;">
+        <div class="card">
+          <h3>项目一：小红书 AI 家居视觉内容运营</h3>
+          <p>
+            通过 AI 工具生成家居空间内容，围绕奶油风、极简风、治愈系等方向进行持续内容发布与风格测试，
+            并根据点赞、收藏等反馈优化内容结构。
+          </p>
+          <div class="tag-list">
+            <span class="tag">AI生图</span>
+            <span class="tag">家居内容</span>
+            <span class="tag">风格测试</span>
+            <span class="tag">基础增长</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>项目二：AI 内容生产工作流搭建</h3>
+          <p>
+            已形成从“选题 → AI生成 → Canva包装 → 小红书发布 → 数据反馈”的基础闭环，
+            能较稳定地进行内容生产与内容风格优化。
+          </p>
+          <div class="tag-list">
+            <span class="tag">ChatGPT</span>
+            <span class="tag">Canva</span>
+            <span class="tag">剪映</span>
+            <span class="tag">内容工作流</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="works">
+      <div class="section-head">
+        <div>
+          <h2>作品展示</h2>
+          <p>这里建议你后续替换成自己的 AI 家居图、小红书主页截图、爆款内容截图。现在先用展示卡位。</p>
+        </div>
+      </div>
+
+      <div class="case-grid">
+        <div class="case">
+          <div class="case-cover">作品图 01<br>奶油风客厅 / AI家居视觉</div>
+          <div class="case-body">
+            <h4>奶油风空间内容</h4>
+            <p>以温柔、治愈、轻盈氛围为核心的视觉方向。</p>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-cover">作品图 02<br>极简风空间 / 内容测试</div>
+          <div class="case-body">
+            <h4>极简风格测试</h4>
+            <p>测试不同风格在小红书上的收藏偏好与反馈。</p>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-cover">作品图 03<br>小红书主页 / 数据表现</div>
+          <div class="case-body">
+            <h4>账号主页展示</h4>
+            <p>展示内容统一性、账号风格与阶段性运营成果。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <div>
+          <h2>经历与能力沉淀</h2>
+          <p>过去经验不是要隐藏，而是要转译成对目标岗位有价值的能力。</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>景观设计师</strong>
+          <span>2020 — 2025</span>
+          参与空间方案设计、概念表达、视觉呈现优化与客户沟通，形成较强的空间审美能力、视觉表达能力与结构化思维能力。
+        </div>
+
+        <div class="timeline-item">
+          <strong>AI内容运营实践</strong>
+          <span>2025 — 至今</span>
+          围绕 AI 视觉生成、小红书内容运营与作品集输出持续进行实践，逐步从设计思维转向内容增长思维。
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>技能结构</h2>
+          <p>我更偏应用层、内容层和视觉层的综合型能力。</p>
+        </div>
+      </div>
+
+      <div class="skill-grid">
+        <div class="skill">
+          <h4>AI工具</h4>
+          <p>ChatGPT / 豆包 / Gemini</p>
+        </div>
+        <div class="skill">
+          <h4>内容工具</h4>
+          <p>Canva / 剪映 / 基础PS</p>
+        </div>
+        <div class="skill">
+          <h4>内容能力</h4>
+          <p>选题策划 / 内容结构 / 视觉包装</p>
+        </div>
+        <div class="skill">
+          <h4>审美能力</h4>
+          <p>空间视觉 / 风格判断 / 构图表达</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="cta">
+        <h3>正在寻找 AI内容运营 / 新媒体运营 / 视觉内容策划相关机会</h3>
+        <p>
+          如果你正在寻找兼具审美能力、AI内容实践和平台运营意识的候选人，欢迎联系我。
+        </p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="mailto:你的邮箱@example.com">邮箱联系我</a>
+          <a class="btn btn-secondary" href="#">返回顶部</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 AI视觉内容作品集 · zhou2835
+  </footer>
 
 </body>
 </html>
